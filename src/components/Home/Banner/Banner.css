@@ -1,0 +1,11 @@
+.text-container{
+    text-align: left;
+    padding: 120px 0px;
+    vertical-align: center;
+    height: 300px;
+    width: 100%;
+    background-image: url('../../image/6.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
