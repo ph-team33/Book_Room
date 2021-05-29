@@ -1,7 +1,7 @@
   
 .header-section{
     width: 100%;
-    min-height: 10vh;
+    min-height: 100px;
     box-sizing: border-box;
     background-color: #FFFFFF;
     transition: all .7s ease-in;
