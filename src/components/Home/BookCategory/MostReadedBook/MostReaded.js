@@ -7,7 +7,7 @@ import "./MostReaded.css";
 const MostReaded = () => {
   const [mostReadedBook, setMostReadedBook] = useState([]);
   useEffect(() => {
-    const uri = `http://localhost:5000/book`;
+    const uri = `https://shrouded-crag-01009.herokuapp.com/book`;
     // const uri = `http://localhost:5000/book?category=Computers%20and%20Tech`;
     axios
       .get(uri)
