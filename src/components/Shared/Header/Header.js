@@ -64,6 +64,7 @@ const Header = () => {
                       alt=""
                     />
                   </li>
+                  <li>{loggedInUserInfo.userInfo.role}</li>
                   <li>
                     <button
                       onClick={() => signOut()}
