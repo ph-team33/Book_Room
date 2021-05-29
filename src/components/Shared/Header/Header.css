@@ -1,19 +1,18 @@
-  
 .header-section{
     width: 100%;
-    min-height: 10vh;
+    max-height: 100px;
     box-sizing: border-box;
     background-color: #FFFFFF;
     transition: all .7s ease-in;
     z-index: 999;
-  }
-  .scrolled{
+}
+.scrolled{
     position: fixed;
     top: 0;
     left: 0;
     box-shadow: 1px 1px 30px rgba(1, 35, 41, 0.205);
     background-color: rgb(255, 255, 255);
-  }
+}
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -26,7 +25,6 @@
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
-    padding: 10px 0px;
 }
 .brand{
     flex-grow: 2;
@@ -71,7 +69,7 @@
         padding: 20px;
         width: 100%;
         position: absolute;
-        top: 80px;
+        top: 60px;
         background: rgb(225, 226, 226);
         left: 0px;
         opacity: 1;
@@ -88,7 +86,7 @@
         display: block;
         font-size: 1.5rem;
         position: absolute;
-        top: -5px;
+        top: -15px;
         right: 20px;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
