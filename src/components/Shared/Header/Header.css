@@ -1,7 +1,7 @@
   
 .header-section{
     width: 100%;
-    min-height: 100px;
+    max-height: 100px;
     box-sizing: border-box;
     background-color: #FFFFFF;
     transition: all .7s ease-in;
@@ -26,7 +26,6 @@
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
-    padding: 10px 0px;
 }
 .brand{
     flex-grow: 2;
@@ -71,7 +70,7 @@
         padding: 20px;
         width: 100%;
         position: absolute;
-        top: 80px;
+        top: 60px;
         background: rgb(225, 226, 226);
         left: 0px;
         opacity: 1;
@@ -88,7 +87,7 @@
         display: block;
         font-size: 1.5rem;
         position: absolute;
-        top: -5px;
+        top: -15px;
         right: 20px;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
