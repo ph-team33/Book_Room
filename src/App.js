@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     fireAuth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        const uri = `http://localhost:5000/user/${userAuth.email}`;
+        const uri = `https://shrouded-crag-01009.herokuapp.com/user/${userAuth.email}`;
         axios
           .get(uri)
           .then(function (response) {

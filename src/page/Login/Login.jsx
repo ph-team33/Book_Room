@@ -29,7 +29,7 @@ const Login = () => {
         image: res.photoURL,
       };
 
-      const uri = `http://localhost:5000/user`;
+      const uri = `https://shrouded-crag-01009.herokuapp.com/user`;
       axios
         .post(uri, postData)
         .then(function (response) {
