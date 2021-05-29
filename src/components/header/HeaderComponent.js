@@ -70,8 +70,8 @@ function HeaderComponent() {
         case currentItem === SLUGS.dashboard:
             title = 'Dashboard';
             break;
-        case [SLUGS.overview, SLUGS.overviewTwo, SLUGS.overviewThree].includes(currentItem):
-            title = 'Overview';
+        case  currentItem === SLUGS.alluser:
+            title = 'All User';
             break;
         case currentItem === SLUGS.tickets:
             title = 'Tickets';
@@ -140,9 +140,9 @@ function HeaderComponent() {
                 <DropdownComponent
                     label={
                         <>
-                            <span className={classes.name}>Germán Llorente</span>
+                            <span className={classes.name}>Rejaul Karim</span>
                             <img
-                                src='https://avatars3.githubusercontent.com/u/21162888?s=460&v=4'
+                                src='https://i.ibb.co/y01HS6W/new.png'
                                 alt='avatar'
                                 className={classes.avatar}
                             />

@@ -53,6 +53,12 @@ function SidebarComponent() {
                 onClick={() => onClick(SLUGS.dashboard)}
             />
             <MenuItem
+                id={SLUGS.alluser}
+                title='All-User'
+                icon={IconSubscription}
+                onClick={() => onClick(SLUGS.alluser)}
+            />
+            {/* <MenuItem
                 id={SLUGS.overview}
                 items={[SLUGS.overviewTwo, SLUGS.overviewThree]}
                 title='Overview'
@@ -79,8 +85,8 @@ function SidebarComponent() {
                     icon={IconArticles}
                     onClick={() => onClick(SLUGS.overviewThree)}
                 />
-            </MenuItem>
-            <MenuItem
+            </MenuItem> */}
+            {/* <MenuItem
                 id={SLUGS.tickets}
                 title='Tickets'
                 icon={IconTickets}
@@ -144,7 +150,7 @@ function SidebarComponent() {
                 title='Settings'
                 icon={IconSettings}
                 onClick={() => onClick(SLUGS.settings)}
-            />
+            /> */}
 
             <MenuItem id='logout' title='Logout' icon={IconLogout} onClick={logout} />
         </Menu>
