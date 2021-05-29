@@ -1,4 +1,4 @@
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCartPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -40,7 +40,7 @@ const Header = () => {
                 <Link to="/category">Category</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/books">Books</Link>
               </li>
               <li>
                 <Link to="/contact">Contact</Link>
@@ -73,6 +73,11 @@ const Header = () => {
                       Sign out
                     </button>
                   </li>
+                  {loggedInUserInfo.isAdmin ? null : (
+                    <li>
+                      <Link to='/cart'> <FontAwesomeIcon icon={faCartPlus} /> <strong> 0 </strong></Link>
+                    </li>
+                  ) }
                 </>
               ) : (
                 <li>

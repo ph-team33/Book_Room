@@ -4,6 +4,7 @@
     border: 1px solid gray;
     padding: 10px;
     border-radius: 10px;
+    height: 265px;
 }
 .serviceBox .service-image > a > img{
     width: 80px;

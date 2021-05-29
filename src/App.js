@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Header from './components/Shared/Header/Header'
+import Footer from './components/Shared/Footer/Footer'
 import AdminRoute from "./AuthRoute/AdminRoute";
 import AuthRoute from "./AuthRoute/AuthRoute";
 import PreLoader from "./components/PreLoader/PreLoader";
@@ -15,6 +17,10 @@ import {
   setIsLoggedIn,
   setUserInfo,
 } from "./redux/slices/authSlice";
+import Cart from "./page/Cart/Cart";
+import Contact from "./components/Contact/Contact";
+import AllBooks from "./page/AllBooks/AllBooks";
+import NotMatch from "./page/NotMatch/NotMatch";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +62,7 @@ function App() {
   ) : (
     <div>
       <Router>
+        <Header/>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -63,9 +70,22 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/books">
+            <AllBooks />
+          </Route>
+          <Route path="*">
+            <NotMatch />
+          </Route>
           <AuthRoute path="/dashboard/user"></AuthRoute>
           <AdminRoute path="/dashboard/admin"></AdminRoute>
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );
