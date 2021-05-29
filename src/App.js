@@ -1,23 +1,73 @@
-import React from 'react'
-import './App.css';
-import {BrowserRouter as Router, Switch , Route } from 'react-router-dom'
-import Header from './components/Shared/Header/Header';
-import Home from './components/Home/Home'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Shared/Footer/Footer';
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import AdminRoute from "./AuthRoute/AdminRoute";
+import AuthRoute from "./AuthRoute/AuthRoute";
+import PreLoader from "./components/PreLoader/PreLoader";
+import { fireAuth } from "./Firebase/FirebaseAuthentication";
+import Home from "./page/Home/Home";
+import Login from "./page/Login/Login";
+import {
+  setIsAdmin,
+  setIsLoggedIn,
+  setUserInfo,
+} from "./redux/slices/authSlice";
+
 function App() {
-  return (
-    <>
-    <Router>
-       <Header/>
-      <Switch>
-        <Route exact path='/'>
-        <Home/>
-        </Route>
-      </Switch>
-      <Footer/>
-    </Router>
-    </>
+  const dispatch = useDispatch();
+  const [loadingPage, setLoadingPage] = useState(true);
+
+  // Check user allready loggedin or not
+  useEffect(() => {
+    fireAuth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        const uri = `https://shrouded-crag-01009.herokuapp.com/user/${userAuth.email}`;
+        axios
+          .get(uri)
+          .then(function (response) {
+            const userData = response.data.data[0];
+            dispatch(setIsAdmin(userData.role === "Admin"));
+            dispatch(setIsLoggedIn(true));
+            dispatch(setUserInfo(userData));
+            setLoadingPage(false);
+          })
+          .catch(function (error) {
+            // handle error
+
+            console.log(error);
+          });
+      } else {
+        dispatch(setIsAdmin(false));
+        dispatch(setIsLoggedIn(false));
+        dispatch(setUserInfo({}));
+        setLoadingPage(false);
+        console.log("not loged in");
+      }
+    });
+  }, [dispatch]);
+
+  return loadingPage ? (
+    <div>
+      <PreLoader />
+    </div>
+  ) : (
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <AuthRoute path="/dashboard/user"></AuthRoute>
+          <AdminRoute path="/dashboard/admin"></AdminRoute>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
