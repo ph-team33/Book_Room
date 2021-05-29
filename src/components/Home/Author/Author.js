@@ -1,25 +1,29 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuthors } from "../../../redux/slices/aothorSlice";
 import "./Author.css";
 
 const Author = () => {
-  const [author, setAuthor] = useState([]);
+  // const [author, setAuthor] = useState([]);
+  const dispatch = useDispatch();
+  const authors = useSelector((state) => state.authors.authors.slice(0, 4));
   useEffect(() => {
     const uri = `https://shrouded-crag-01009.herokuapp.com/bookAuthor`;
     axios
       .get(uri)
       .then(function (response) {
-        setAuthor(response.data.data);
+        dispatch(setAuthors(response.data.data));
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [dispatch]);
   return (
     <div className="container">
       <h2 className="text-center">Top Rated Author</h2>
       <div className="row">
-        {author.map((singleAuthor, index) => (
+        {authors.map((singleAuthor, index) => (
           <div key={index} className="col-md-3 col-sm-6">
             <div className="serviceBox">
               <div className="service-image">
