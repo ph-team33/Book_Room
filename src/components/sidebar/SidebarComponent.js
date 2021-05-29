@@ -58,6 +58,12 @@ function SidebarComponent() {
                 icon={IconSubscription}
                 onClick={() => onClick(SLUGS.alluser)}
             />
+            <MenuItem
+                id={SLUGS.allbook}
+                title='Orderd-Books'
+                icon={IconSubscription}
+                onClick={() => onClick(SLUGS.oredredbook)}
+            />
             {/* <MenuItem
                 id={SLUGS.overview}
                 items={[SLUGS.overviewTwo, SLUGS.overviewThree]}
