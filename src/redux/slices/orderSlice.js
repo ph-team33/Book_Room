@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const orderSlice = createSlice({
-  name: "order",
+  name: "orders",
   initialState: {
-    order: [] ,
+    orders: [],
   },
 
   reducers: {
     allOrder: (state, action) => {
-        state.order.push(action.payload);
-    }
+      state.orders = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {allOrder} = orderSlice.actions;
+export const { allOrder } = orderSlice.actions;
 
 export default orderSlice.reducer;
