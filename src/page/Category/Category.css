@@ -1,0 +1,68 @@
+.categoryServiceBox{ text-align: center; }
+.categoryServiceBox .service-icon{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #f3a422;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 5px 10px 5px 5px rgb(224, 219, 219);
+}
+.category-card{
+    border: none;
+    box-shadow: 5px 10px 5px 5px rgb(243, 209, 209);
+    border-radius: 8px;
+    padding: 20px;
+}
+.categoryServiceBox .service-icon i{
+    font-size: 35px;
+    color: #fff;
+    line-height: 100px;
+    transition: all 0.3s ease 0s;
+}
+.categoryServiceBox:hover .service-icon i{
+    transform: rotateY(180deg);
+}
+.categoryServiceBox .title{
+    display: block;
+    width: 190px;
+    font-size: 24px;
+    color: #433b3b;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #175faa;
+    padding-bottom: 20px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+.categoryServiceBox .title:before,
+.categoryServiceBox .title:after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #175faa;
+    margin: 0 -5px 0 0;
+    position: absolute;
+    bottom: -5px;
+    right: 50%;
+    transition: all 0.4s ease 0s;
+}
+.categoryServiceBox .title:before{
+    left: 50%;
+    margin: 0 0 0 -5px;
+}
+.categoryServiceBox:hover .title:before{ left: 100%; }
+.categoryServiceBox:hover .title:after{ right: 100%; }
+.categoryServiceBox .description{
+    font: 14px;
+    color: #808080;
+    line-height: 27px;
+    padding: 0 15px;
+    margin: 0;
+}
+@media only screen and (max-width:990px){
+    .categoryServiceBox{ margin-bottom: 30px; }
+}
