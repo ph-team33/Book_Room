@@ -7,6 +7,7 @@ import { signOut } from "../../../Firebase/FirebaseAuthentication";
 import "./Header.css";
 const Header = () => {
   const loggedInUserInfo = useSelector((state) => state.auths);
+  console.log(loggedInUserInfo);
   const carts = useSelector((state) => state.carts.carts);
   // console.log(carts);
 

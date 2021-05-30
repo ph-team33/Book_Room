@@ -15,7 +15,9 @@ import { fireAuth } from "./Firebase/FirebaseAuthentication";
 import AllBooks from "./page/AllBooks/AllBooks";
 import Cart from "./page/Cart/Cart";
 import ManageUser from "./page/Dashboard/Admin/ManageUser/ManageUser";
-import ViewOrder from "./page/Dashboard/User/ViewOrder/ViewOrder";
+import Review from "./page/Dashboard/User/AddReview/AddReview";
+import Order from "./page/Dashboard/User/Order/Order";
+import UserProfile from "./page/Dashboard/User/UserProfile/UserProfile";
 import Home from "./page/Home/Home";
 import Login from "./page/Login/Login";
 import NotMatch from "./page/NotMatch/NotMatch";
@@ -83,9 +85,14 @@ function App() {
           <Route path="/books">
             <AllBooks />
           </Route>
-
           <AuthRoute path="/dashboard/user">
-            <ViewOrder />
+            <UserProfile />
+          </AuthRoute>
+          <AuthRoute path="/dashboard/order">
+            <Order />
+          </AuthRoute>
+          <AuthRoute path="/dashboard/review">
+            <Review />
           </AuthRoute>
           <AdminRoute path="/dashboard/admin">
             <ManageUser />

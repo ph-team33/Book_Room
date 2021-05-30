@@ -3,6 +3,7 @@ import authorReducer from "./slices/aothorSlice";
 import authReducer from "./slices/authSlice";
 import cartReducer from "./slices/cartSlice";
 import dashboardReducer from "./slices/dashboardSlice";
+import orderReducer from "./slices/orderSlice";
 import sweetAlertReducer from "./slices/sweetAlertSlice";
 
 export default configureStore({
@@ -12,5 +13,6 @@ export default configureStore({
     dashboards: dashboardReducer,
     sweetAlert: sweetAlertReducer,
     carts: cartReducer,
+    order: orderReducer,
   },
 });
