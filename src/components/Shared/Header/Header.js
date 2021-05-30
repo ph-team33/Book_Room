@@ -8,8 +8,9 @@ import "./Header.css";
 const Header = () => {
   const loggedInUserInfo = useSelector((state) => state.auths);
   const carts = useSelector((state) => state.carts.carts);
+  // console.log(carts);
 
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(true);
   const handleClick = () => setClick(!click);
   const [scrolled, setScrolled] = useState(false);
   const handleScroll = () => {
@@ -77,11 +78,11 @@ const Header = () => {
                   </li>
                   {loggedInUserInfo.isAdmin ? null : (
                     <li>
-                      <Link to="/cart">
-                        {" "}
-                        <FontAwesomeIcon icon={faCartPlus} />{" "}
-                        <strong> {carts.length} </strong>
-                      </Link>
+                   <Link to="/cart">
+                      <FontAwesomeIcon icon={faCartPlus}/>
+                       <strong> {carts.length} </strong>
+                     </Link>
+                     
                     </li>
                   )}
                 </>

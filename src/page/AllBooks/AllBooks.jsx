@@ -2,15 +2,12 @@ import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
 const AllBooks = () => {
 
     //add to cart 
-  const [cart, setCart] = useState([])
-  
-  const addToCart = (book) => {
-   setCart([...cart, book])
- }
+    const dispatch = useDispatch()
 
   //api calling
   const [books, setBooks] = useState([]);
@@ -44,7 +41,7 @@ const AllBooks = () => {
                   <strong>{book.name}</strong>
                 </h3>
                 <span>Category: {book.category} </span>
-                <p> <strong onClick={()=> addToCart(book)} className='add-to-cart'>Get Book <FontAwesomeIcon icon={faArrowCircleRight}/></strong>  </p>
+                <p> <strong onClick={()=> dispatch(addToCart(book))} className='add-to-cart'>Get Book <FontAwesomeIcon icon={faArrowCircleRight}/></strong>  </p>
               </div>
             </div>
           </div>
