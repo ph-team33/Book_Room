@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../../redux/slices/cartSlice";
 
 const Education = () => {
 
   //add to cart 
-  const [cart, setCart] = useState([])
-  const addToCart = (book) => {
-   setCart([...cart, book])
- }
+  const dispatch = useDispatch()
+
     const [computerAndTech, setComputerAndTech] = useState([]);
     useEffect(() => {
      const uri = `https://shrouded-crag-01009.herokuapp.com/book?category=Education`;
@@ -38,7 +38,7 @@ const Education = () => {
                       <strong>{eduBook.name}</strong>
                     </h3>
                     <span>Category: {eduBook.category} </span>
-                    <p> <strong onClick={()=> addToCart(eduBook)} className='add-to-cart'>Get Book <FontAwesomeIcon icon={faArrowCircleRight}/></strong>  </p>
+                    <p> <strong onClick={()=> dispatch(addToCart(eduBook))} className='add-to-cart'>Get Book <FontAwesomeIcon icon={faArrowCircleRight}/></strong>  </p>
                   </div>
                 </div>
               </div>

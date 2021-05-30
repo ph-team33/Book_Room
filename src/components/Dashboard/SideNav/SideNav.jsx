@@ -6,15 +6,15 @@ const SideNav = ({ active, navType }) => {
     <nav className="nav flex-column">
       <Link
         className={`nav-link text-light border-bottom ${
-          active === "new-order" ? "bg-info" : "bg-dark"
+          active === "Profile" ? "bg-info" : "bg-dark"
         }`}
         aria-current="page"
-        to="/"
+        to="/dashboard/user"
       >
         <span className="px-3">
           <i className="fas fa-home"> </i>
         </span>
-        New Order
+        Profile
       </Link>
       <Link
         className={`nav-link text-light border-bottom ${
