@@ -14,7 +14,7 @@ const SideNav = ({ active, navType }) => {
         <span className="px-3">
           <i className="fas fa-home"> </i>
         </span>
-        User Profile   
+        User Profile
       </Link>
       <Link
         className={`nav-link text-light border-bottom ${
@@ -59,51 +59,15 @@ const SideNav = ({ active, navType }) => {
       </Link>
       <Link
         className={`nav-link text-light border-bottom ${
-          active === "add-package" ? "bg-info" : "bg-dark"
+          active === "manageOrder" ? "bg-info" : "bg-dark"
         }`}
         aria-current="page"
-        to="/admin/newPackage"
+        to="/dashboard/manageOrder"
       >
         <span className="px-3">
           <i className="far fa-plus-square"></i>
         </span>
-        Add New Package
-      </Link>
-      <Link
-        className={`nav-link text-light border-bottom ${
-          active === "new-admin" ? "bg-info" : "bg-dark"
-        }`}
-        aria-current="page"
-        to="/admin/newAdmin"
-      >
-        <span className="px-3">
-          <i className="far fa-plus-square"></i>
-        </span>
-        Make Admin
-      </Link>
-      <Link
-        className={`nav-link text-light border-bottom ${
-          active === "manage-package" ? "bg-info" : "bg-dark"
-        }`}
-        aria-current="page"
-        to="/admin/managePackage"
-      >
-        <span className="px-3">
-          <i className="fas fa-th"></i>
-        </span>
-        Manage Package
-      </Link>
-      <Link
-        className={`nav-link text-light border-bottom ${
-          active === "admin-list" ? "bg-info" : "bg-dark"
-        }`}
-        aria-current="page"
-        to="/admin/adminList"
-      >
-        <span className="px-3">
-          <i className="fas fa-th"></i>
-        </span>
-        Admin List
+        Manage Order
       </Link>
     </nav>
   );

@@ -14,6 +14,7 @@ import SweetAlert from "./components/SweetAlert/SweetAlert";
 import { fireAuth } from "./Firebase/FirebaseAuthentication";
 import AllBooks from "./page/AllBooks/AllBooks";
 import Cart from "./page/Cart/Cart";
+import ManageOrder from "./page/Dashboard/Admin/ManageOrder/ManageOrder";
 import ManageUser from "./page/Dashboard/Admin/ManageUser/ManageUser";
 import Review from "./page/Dashboard/User/AddReview/AddReview";
 import Order from "./page/Dashboard/User/Order/Order";
@@ -96,6 +97,9 @@ function App() {
           </AuthRoute>
           <AdminRoute path="/dashboard/admin">
             <ManageUser />
+          </AdminRoute>
+          <AdminRoute path="/dashboard/manageOrder">
+            <ManageOrder />
           </AdminRoute>
           <Route path="*">
             <NotMatch />

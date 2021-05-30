@@ -79,11 +79,10 @@ const Header = () => {
                   </li>
                   {loggedInUserInfo.isAdmin ? null : (
                     <li>
-                   <Link to="/cart">
-                      <FontAwesomeIcon icon={faCartPlus}/>
-                       <strong> {carts.length} </strong>
-                     </Link>
-                     
+                      <Link to="/cart">
+                        <FontAwesomeIcon icon={faCartPlus} />
+                        <strong> {carts.length} </strong>
+                      </Link>
                     </li>
                   )}
                 </>

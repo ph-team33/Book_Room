@@ -38,6 +38,7 @@ const Order = () => {
                   <th>Email</th>
                   <th>Category</th>
                   <th>Date</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               {orders.map((order, index) => (
@@ -46,7 +47,10 @@ const Order = () => {
                     <td>{order.book.name}</td>
                     <td>{order.email}</td>
                     <td>{order.book.category}</td>
-                    <td>{order.date}</td>
+                    <td>{new Date(order.date).toLocaleDateString()}</td>
+                    <td>
+                      <span className="badge bg-primary">{order.status}</span>
+                    </td>
                   </tr>
                 </tbody>
               ))}
