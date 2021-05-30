@@ -6,7 +6,7 @@ const SideNav = ({ active, navType }) => {
     <nav className="nav flex-column">
       <Link
         className={`nav-link text-light border-bottom ${
-          active === "Profile" ? "bg-info" : "bg-dark"
+          active === "User Profile" ? "bg-info" : "bg-dark"
         }`}
         aria-current="page"
         to="/dashboard/user"
@@ -14,14 +14,14 @@ const SideNav = ({ active, navType }) => {
         <span className="px-3">
           <i className="fas fa-home"> </i>
         </span>
-        Profile
+        User Profile   
       </Link>
       <Link
         className={`nav-link text-light border-bottom ${
-          active === "my-order" ? "bg-info" : "bg-dark"
+          active === "My Order" ? "bg-info" : "bg-dark"
         }`}
         aria-current="page"
-        to="/order"
+        to="/dashboard/order"
       >
         <span className="px-3">
           <i className="far fa-plus-square"></i>
@@ -33,24 +33,12 @@ const SideNav = ({ active, navType }) => {
           active === "write-review" ? "bg-info" : "bg-dark"
         }`}
         aria-current="page"
-        to="/order"
+        to="/dashboard/review"
       >
         <span className="px-3">
           <i className="far fa-plus-square"></i>
         </span>
         Write Review
-      </Link>
-      <Link
-        className={`nav-link text-light border-bottom ${
-          active === "my-review" ? "bg-info" : "bg-dark"
-        }`}
-        aria-current="page"
-        to="/myReview"
-      >
-        <span className="px-3">
-          <i className="fas fa-th"></i>
-        </span>
-        My Review
       </Link>
     </nav>
   );
