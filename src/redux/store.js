@@ -13,6 +13,6 @@ export default configureStore({
     dashboards: dashboardReducer,
     sweetAlert: sweetAlertReducer,
     carts: cartReducer,
-    order: orderReducer,
+    orders: orderReducer,
   },
 });
