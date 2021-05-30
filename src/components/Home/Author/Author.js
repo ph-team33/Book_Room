@@ -35,9 +35,9 @@ const Author = () => {
                 <h3>{singleAuthor.name}</h3>
                 <small>{singleAuthor.bio}</small>
               </div>
-              <div className="read">
+              <span className="read">
                 <a href="/#">learn more</a>
-              </div>
+              </span>
             </div>
           </div>
         ))}

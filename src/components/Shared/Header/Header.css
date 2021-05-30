@@ -47,7 +47,16 @@
 .nav .nav-menu li{
     list-style: none;
 }
-.nav .nav-menu li:hover{
+.nav .nav-menu li:nth-child(1):hover{
+    border-bottom: 2px solid red;
+}
+.nav .nav-menu li:nth-child(2):hover{
+    border-bottom: 2px solid red;
+}
+.nav .nav-menu li:nth-child(3):hover{
+    border-bottom: 2px solid red;
+}
+.nav .nav-menu li:nth-child(4):hover{
     border-bottom: 2px solid red;
 }
 .nav .nav-menu li > *{
