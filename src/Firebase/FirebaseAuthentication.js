@@ -43,6 +43,27 @@ export const signOut = () => {
     });
 };
 
+// Sign with email and password
+export const signInWithEmailAndPassword = (email, password) => {
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      //return userCredential.user;
+
+      const newUserInfo = userCredential.user;
+      newUserInfo.error = "";
+      newUserInfo.success = true;
+      return newUserInfo;
+    })
+    .catch((error) => {
+      const newUserInfo = {};
+      newUserInfo.error = error.message;
+      newUserInfo.success = false;
+      return newUserInfo;
+    });
+};
+
 export const checkLoginUser = () => {
   firebase.auth().onAuthStateChanged((userAuth) => {
     console.log(userAuth);

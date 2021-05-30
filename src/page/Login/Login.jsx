@@ -1,8 +1,11 @@
 import axios from "axios";
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
-import { googleSignIn } from "../../Firebase/FirebaseAuthentication";
+import {
+  googleSignIn,
+  signInWithEmailAndPassword,
+} from "../../Firebase/FirebaseAuthentication";
 import {
   setIsAdmin,
   setIsLoggedIn,
@@ -10,15 +13,38 @@ import {
 } from "../../redux/slices/authSlice";
 
 const Login = () => {
+  const isLoggedIn = useSelector((state) => state.auths.isLoggedIn);
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
 
+  if (isLoggedIn) {
+    history.push("./");
+  }
+  const [inputData, setInputData] = useState({});
+
+  const handleInputChange = (e) => {
+    setInputData({
+      ...inputData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(inputData);
+
   const signInWithGoogle = () => {
     googleSignIn().then((res) => {
       handleResponse(res, res.success);
     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(inputData.email, inputData.password).then(
+      (res) => {
+        handleResponse(res, res.success);
+      }
+    );
   };
 
   const handleResponse = (res, success) => {
@@ -40,23 +66,45 @@ const Login = () => {
           history.replace(from);
         })
         .catch(function (error) {
-          // handle error
           console.log(error);
         });
-      // setLoggedInUserInfo(res);
-      // history.replace(from);
     } else {
       console.log(res.error);
     }
   };
   return (
     <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ height: "100vh" }}
+      className="d-flex flex-column justify-content-center align-items-center"
+      style={{ height: "70vh" }}
     >
-      <button onClick={() => signInWithGoogle()} className="btn btn-danger">
-        Login with Google
-      </button>
+      <h1>Sign In</h1>
+      <div className="col-md-4">
+        <form onSubmit={handleSubmit} className="form text-center">
+          <input
+            name="email"
+            onChange={handleInputChange}
+            className="form-control"
+            type="text"
+            placeholder="admin@bookroom.app"
+          ></input>
+          <input
+            name="password"
+            onChange={handleInputChange}
+            className="form-control"
+            type="password"
+            placeholder="123456"
+          ></input>
+          <button className="btn btn-primary w-100" type="submit">
+            Login
+          </button>
+        </form>
+        <button
+          onClick={() => signInWithGoogle()}
+          className="btn btn-danger w-100"
+        >
+          Login with Google
+        </button>
+      </div>
     </div>
   );
 };
