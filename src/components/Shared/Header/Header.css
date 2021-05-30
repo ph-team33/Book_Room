@@ -59,6 +59,9 @@
 .nav .nav-menu li:nth-child(4):hover{
     border-bottom: 2px solid red;
 }
+.nav .nav-menu li:las{
+    border-bottom: 2px solid red;
+}
 .nav .nav-menu li > *{
     text-decoration: none;
     font-size: 1.2rem;

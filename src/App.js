@@ -4,23 +4,26 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Header from './components/Shared/Header/Header'
-import Footer from './components/Shared/Footer/Footer'
 import AdminRoute from "./AuthRoute/AdminRoute";
 import AuthRoute from "./AuthRoute/AuthRoute";
+import Contact from "./components/Contact/Contact";
 import PreLoader from "./components/PreLoader/PreLoader";
+import Footer from "./components/Shared/Footer/Footer";
+import Header from "./components/Shared/Header/Header";
+import SweetAlert from "./components/SweetAlert/SweetAlert";
 import { fireAuth } from "./Firebase/FirebaseAuthentication";
+import AllBooks from "./page/AllBooks/AllBooks";
+import Cart from "./page/Cart/Cart";
+import ManageUser from "./page/Dashboard/Admin/ManageUser/ManageUser";
+import ViewOrder from "./page/Dashboard/User/ViewOrder/ViewOrder";
 import Home from "./page/Home/Home";
 import Login from "./page/Login/Login";
+import NotMatch from "./page/NotMatch/NotMatch";
 import {
   setIsAdmin,
   setIsLoggedIn,
   setUserInfo,
 } from "./redux/slices/authSlice";
-import Cart from "./page/Cart/Cart";
-import Contact from "./components/Contact/Contact";
-import AllBooks from "./page/AllBooks/AllBooks";
-import NotMatch from "./page/NotMatch/NotMatch";
 
 function App() {
   const dispatch = useDispatch();
@@ -61,8 +64,9 @@ function App() {
     </div>
   ) : (
     <div>
+      <SweetAlert />
       <Router>
-        <Header/>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -79,13 +83,18 @@ function App() {
           <Route path="/books">
             <AllBooks />
           </Route>
+
+          <AuthRoute path="/dashboard/user">
+            <ViewOrder />
+          </AuthRoute>
+          <AdminRoute path="/dashboard/admin">
+            <ManageUser />
+          </AdminRoute>
           <Route path="*">
             <NotMatch />
           </Route>
-          <AuthRoute path="/dashboard/user"></AuthRoute>
-          <AdminRoute path="/dashboard/admin"></AdminRoute>
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
     </div>
   );

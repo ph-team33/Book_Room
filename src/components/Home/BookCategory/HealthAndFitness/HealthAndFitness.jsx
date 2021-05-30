@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../../redux/slices/cartSlice";
 
 const HealthAndFitness = () => {
 
   //add to cart 
-  const [cart, setCart] = useState([])
-  const addToCart = (book) => {
-   setCart([...cart, book])
- }
+  const dispatch = useDispatch();
     const [healthAndFitness, setHealthAndFitness] = useState([]);
     useEffect(() => {
      const uri = `https://shrouded-crag-01009.herokuapp.com/book?category=Health%20and%20Fitness`;
@@ -38,7 +37,7 @@ const HealthAndFitness = () => {
                       <strong>{hafBook.name}</strong>
                     </h3>
                     <span>Category: {hafBook.category} </span>
-                    <p> <strong onClick={()=> addToCart(hafBook)} className='add-to-cart'>Get Book <FontAwesomeIcon icon={faArrowCircleRight}/></strong>  </p>
+                    <p> <strong onClick={()=> dispatch(addToCart(hafBook))} className='add-to-cart'>Get Book <FontAwesomeIcon icon={faArrowCircleRight}/></strong>  </p>
                   </div>
                 </div>
               </div>
